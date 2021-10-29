@@ -7,8 +7,8 @@ function WorkoutDay({workout, exercises}) {
 
         return (
             <div>
-                {workout.name}
                 <table>
+                    <caption>{workout.name}</caption>
                     <thead>
                     <th>Exercise</th>
                         <th>Group</th>

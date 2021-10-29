@@ -2,14 +2,27 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Schedule from '../components/Schedule';
+import SongDisplay from '../components/SongDisplay';
 
 function HomePage() {
 
     const [workouts, setWorkouts] = useState([]);
+    const [songs, setSongs] = useState([]);
 
+    const findSongs = async () => {
+        const response = await fetch('/songs');
+        const data = await response.json();
 
+        if (response.status === 200) {
+            setSongs(data);
+        }
+        else {
+            console.error(`Could not fetch, status code = ${response.status}`)
+        }
+        
+    };
 
-    const findWorkouts = async day => {
+    const findWorkouts = async () => {
         const response = await fetch('/workouts');
         const data = await response.json();
 
@@ -25,10 +38,15 @@ function HomePage() {
     useEffect(() => {
         findWorkouts();
     }, [])
+
+    useEffect(() => {
+        findSongs();
+    }, [])
     
 
     return (
         <div>
+            <h1>Your Workout Schedule</h1>
             <table>
             <thead>
                 <tr>
@@ -41,7 +59,7 @@ function HomePage() {
                     <th><h2>Saturday</h2></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody> 
                 <tr>
                     <Schedule workouts = {workouts} day ={'Sunday'} ></Schedule>
                     <Schedule workouts = {workouts} day ={'Monday'} ></Schedule>
@@ -53,10 +71,12 @@ function HomePage() {
                 </tr>
             </tbody>
         </table>
-            
             <Link to='/workouts' className='App-link'>View and Assign Workouts</Link>
-            <br></br>
+            <br />
             <Link to='/create-workout' className='App-link'>Create a Workout</Link>
+            <br />
+            <h2>Workout Song Recommendation</h2>
+            <SongDisplay songs = {songs}></SongDisplay>
         </div>
     );
 };

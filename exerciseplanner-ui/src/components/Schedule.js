@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react'
+import Song from './Song';
 import WorkoutDay from './WorkoutDay';
 
 function Schedule ({workouts, findWorkout, day}) {

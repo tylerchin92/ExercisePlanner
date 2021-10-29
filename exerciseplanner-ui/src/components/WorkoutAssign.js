@@ -17,6 +17,7 @@ function WorkoutAssign({workout, onEdit, onDelete, assignDay, setDay}) {
                     <option>Thursday</option>
                     <option>Friday</option>
                     <option>Saturday</option>
+                    <option value="">Unassign</option>
                     </select>
                     <button onClick={() => assignDay(workout._id)}>Submit</button>
                 </td>

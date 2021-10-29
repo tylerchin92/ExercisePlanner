@@ -28,7 +28,7 @@ const workoutSchema = mongoose.Schema({
 
 const songSchema = mongoose.Schema({
     title: {type: String, required: true},
-    artistName: {type: String, required: true},
+    artist: {type: String, required: true},
     album: {type: String, required: true},
     genre: {type: String, required: true}
 
@@ -47,6 +47,15 @@ const findSongs = async (filter, projection, limit) => {
 
     return query.exec()
 };
+
+
+const createSong = async (title, artist, album, genre) => {
+
+    const song = new Song({title: title, artist: artist, album: album, genre: genre});
+
+    return song.save()
+};
+
 
 const createWorkout = async (name) => {
 
