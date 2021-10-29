@@ -63,7 +63,7 @@ function WorkoutCreator({setWorkoutToEdit}) {
             <input
                 type='text'
                 value={name}
-                placeholder='Enter Workout Name'
+                placeholder='New Workout Name'
                 onChange={e => setName(e.target.value)} />
             <button onClick={addWorkout}>Create</button>
             <br></br>

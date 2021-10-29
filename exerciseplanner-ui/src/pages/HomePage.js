@@ -76,6 +76,7 @@ function HomePage() {
             <Link to='/create-workout' className='App-link'>Create a Workout</Link>
             <br />
             <h2>Workout Song Recommendation</h2>
+            <button>Request New Songs</button>
             <SongDisplay songs = {songs}></SongDisplay>
         </div>
     );
