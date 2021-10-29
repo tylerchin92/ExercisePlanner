@@ -42,7 +42,7 @@ function WorkoutPage ({setWorkoutToEdit, workoutToEdit}) {
             }
         });
         if (response.status === 200) {
-            alert("Successfully edited exercise")
+            console.log("Successfully edited exercise")
         }
         else {
             alert(`Failed to edit exercise, status code = ${response.status}`)
