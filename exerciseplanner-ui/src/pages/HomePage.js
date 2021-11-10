@@ -4,23 +4,35 @@ import { useState } from 'react';
 import Schedule from '../components/Schedule';
 import SongDisplay from '../components/SongDisplay';
 
-function HomePage() {
+function HomePage({updateSongs}) {
 
     const [workouts, setWorkouts] = useState([]);
     const [songs, setSongs] = useState([]);
+    const [filteredSongs, setFilteredSongs] = useState([]);
+    const [tempo, setTempo] = useState(0);
 
     const findSongs = async () => {
-        const response = await fetch('/songs');
+        const response = await fetch('http://127.0.0.1:8000/songs');
         const data = await response.json();
 
-        if (response.status === 200) {
+        if (response.ok) {
             setSongs(data);
         }
         else {
             console.error(`Could not fetch, status code = ${response.status}`)
-        }
+        };
         
     };
+
+    const filterSongs = async () => {
+
+        findSongs();
+        
+        const newSongs = songs.filter(song => song.tempo > tempo);
+
+        setFilteredSongs(newSongs);
+    }
+
 
     const findWorkouts = async () => {
         const response = await fetch('/workouts');
@@ -38,11 +50,6 @@ function HomePage() {
     useEffect(() => {
         findWorkouts();
     }, [])
-
-    useEffect(() => {
-        findSongs();
-    }, [])
-    
 
     return (
         <div>
@@ -76,8 +83,14 @@ function HomePage() {
             <Link to='/create-workout' className='App-link'>Create a Workout</Link>
             <br />
             <h2>Workout Song Recommendation</h2>
-            <button>Request New Songs</button>
-            <SongDisplay songs = {songs}></SongDisplay>
+            <label>Set Tempo - Max 200</label>
+            <input 
+                type='number' 
+                value={tempo} 
+                max='200'  
+                onChange={e => setTempo(e.target.value)} />
+            <button onClick= {filterSongs}>Request New Songs</button>
+            <SongDisplay songs = {filteredSongs}></SongDisplay>
         </div>
     );
 };

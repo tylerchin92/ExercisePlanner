@@ -10,12 +10,13 @@ import EditWorkout from './pages/EditWorkout';
 function App() {
 
   const [workoutToEdit, setWorkoutToEdit] = useState();
+  const [newSongs, updateSongs] = useState();
   return (
     <div className="App">
       <header className="App-header">
         <Router>
           <Route path='/' exact>
-            <HomePage />
+            <HomePage newSongs = {newSongs} updateSongs = {updateSongs} />
           </Route>
           <Route path='/workouts'>
             <WorkoutPage setWorkoutToEdit = {setWorkoutToEdit} workoutToEdit = {workoutToEdit} />

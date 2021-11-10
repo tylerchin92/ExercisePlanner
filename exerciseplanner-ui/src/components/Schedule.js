@@ -2,7 +2,7 @@ import React from 'react';
 import Song from './Song';
 import WorkoutDay from './WorkoutDay';
 
-function Schedule ({workouts, findWorkout, day}) {
+function Schedule ({workouts, day}) {
     
     const dayWorkout = workouts.filter(workout => workout.day === day)
 
