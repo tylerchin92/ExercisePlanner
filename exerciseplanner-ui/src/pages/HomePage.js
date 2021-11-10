@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Schedule from '../components/Schedule';
 import SongDisplay from '../components/SongDisplay';
 
-function HomePage({updateSongs}) {
+function HomePage() {
 
     const [workouts, setWorkouts] = useState([]);
     const [songs, setSongs] = useState([]);
     const [filteredSongs, setFilteredSongs] = useState([]);
-    const [tempo, setTempo] = useState(0);
+    const [minTempo, setMinTempo] = useState(0);
+    const [maxTempo, setMaxTempo] = useState(0);
 
     const findSongs = async () => {
         const response = await fetch('http://127.0.0.1:8000/songs');
@@ -24,13 +25,16 @@ function HomePage({updateSongs}) {
         
     };
 
-    const filterSongs = async () => {
+    const filterSongs = () => {
 
         findSongs();
         
-        const newSongs = songs.filter(song => song.tempo > tempo);
+        const minFilter = songs.filter(song => song.tempo >= minTempo);
 
-        setFilteredSongs(newSongs);
+        const maxFilter = minFilter.filter(song => song.tempo <= maxTempo)
+        
+        setFilteredSongs(maxFilter);
+        
     }
 
 
@@ -83,13 +87,26 @@ function HomePage({updateSongs}) {
             <Link to='/create-workout' className='App-link'>Create a Workout</Link>
             <br />
             <h2>Workout Song Recommendations</h2>
-            <label>Set Tempo - Max 200</label>
-            <input 
-                type='number' 
-                value={tempo} 
-                max='200'  
-                onChange={e => setTempo(e.target.value)} />
-            <button onClick= {filterSongs}>Request New Songs</button>
+            <div>
+                <label>Set Minimum Tempo</label>
+                <input 
+                    type='number' 
+                    value={minTempo} 
+                    min='0'
+                    max='200'
+                    defaultValue='0'  
+                    onChange={e => setMinTempo(e.target.value)} />
+                <br />
+                <label>Set Maximum Tempo</label>
+                <input 
+                    type='number' 
+                    value={maxTempo} 
+                    max='200'  
+                    defaultValue='200'
+                    onChange={e => setMaxTempo(e.target.value)} />
+                <br />
+                <button onClick= {filterSongs}>Request New Songs</button>
+            </div>
             <SongDisplay songs = {filteredSongs}></SongDisplay>
         </div>
     );
