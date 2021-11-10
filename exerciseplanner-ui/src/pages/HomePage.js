@@ -82,7 +82,7 @@ function HomePage({updateSongs}) {
             <br />
             <Link to='/create-workout' className='App-link'>Create a Workout</Link>
             <br />
-            <h2>Workout Song Recommendation</h2>
+            <h2>Workout Song Recommendations</h2>
             <label>Set Tempo - Max 200</label>
             <input 
                 type='number' 
