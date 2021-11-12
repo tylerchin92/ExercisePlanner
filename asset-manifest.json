@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ExercisePlanner/static/css/main.095253df.chunk.css",
+    "main.js": "/ExercisePlanner/static/js/main.1cbc1059.chunk.js",
+    "main.js.map": "/ExercisePlanner/static/js/main.1cbc1059.chunk.js.map",
+    "runtime-main.js": "/ExercisePlanner/static/js/runtime-main.b52d8f77.js",
+    "runtime-main.js.map": "/ExercisePlanner/static/js/runtime-main.b52d8f77.js.map",
+    "static/js/2.e00c0b2f.chunk.js": "/ExercisePlanner/static/js/2.e00c0b2f.chunk.js",
+    "static/js/2.e00c0b2f.chunk.js.map": "/ExercisePlanner/static/js/2.e00c0b2f.chunk.js.map",
+    "static/js/3.a91c779b.chunk.js": "/ExercisePlanner/static/js/3.a91c779b.chunk.js",
+    "static/js/3.a91c779b.chunk.js.map": "/ExercisePlanner/static/js/3.a91c779b.chunk.js.map",
+    "index.html": "/ExercisePlanner/index.html",
+    "static/css/main.095253df.chunk.css.map": "/ExercisePlanner/static/css/main.095253df.chunk.css.map",
+    "static/js/2.e00c0b2f.chunk.js.LICENSE.txt": "/ExercisePlanner/static/js/2.e00c0b2f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b52d8f77.js",
+    "static/js/2.e00c0b2f.chunk.js",
+    "static/css/main.095253df.chunk.css",
+    "static/js/main.1cbc1059.chunk.js"
+  ]
+}
