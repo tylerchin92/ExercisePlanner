@@ -48,15 +48,6 @@ const findSongs = async (filter, projection, limit) => {
     return query.exec()
 };
 
-
-const createSong = async (title, artist, album, genre) => {
-
-    const song = new Song({title: title, artist: artist, album: album, genre: genre});
-
-    return song.save()
-};
-
-
 const createWorkout = async (name) => {
 
     const workout = new Workout({name: name});
