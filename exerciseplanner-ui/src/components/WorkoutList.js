@@ -9,7 +9,7 @@ function WorkoutList({workouts, onDelete, onEdit}) {
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Edit/View Workout</th>
+                    <th>View Workout and Add Exercises</th>
                     <th>Delete</th>
                 </tr>
             </thead>

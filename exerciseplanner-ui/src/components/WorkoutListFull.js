@@ -12,7 +12,7 @@ function WorkoutListFull({workouts, onDelete, onEdit, assignDay, setDay}) {
                     <tr>
                         <th>Name</th>
                         <th>Assign Workout</th>
-                        <th>Edit/View Workout</th>
+                        <th>View Workout and Add Exercises</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
