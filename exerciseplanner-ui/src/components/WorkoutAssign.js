@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 
-
+// Component that allows the user to assign a workout to a day on the schedule
 function WorkoutAssign({workout, onEdit, onDelete, assignDay, setDay}) {
         return (
             <tr>

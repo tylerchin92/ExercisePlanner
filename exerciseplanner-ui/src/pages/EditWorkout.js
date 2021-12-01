@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import ExerciseList from '../components/ExerciseList';
 
+// Displays page for a specific exercise for editing
 function EditWorkout({workoutToEdit}) {
 
     const [name, setName] = useState(workoutToEdit.name);
@@ -18,6 +19,7 @@ function EditWorkout({workoutToEdit}) {
 
     const history = useHistory();
 
+    // Add exercises to a workout
     const updateWorkout = async () => {
 
         const exercise = {name: exerciseName, muscleGroup: exerciseMuscleGroup, weight: exerciseWeight , sets: exerciseSets, reps: exerciseReps};
@@ -40,6 +42,7 @@ function EditWorkout({workoutToEdit}) {
         refresh({});
     };
 
+    // Assign this workout to a day on the schedule
     const assignDay = async () => {
 
         const changedWorkout = {name, exercises, day};

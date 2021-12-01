@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 
-
+// Component for each exercise mapped to a table row
 function Exercise({exercise, onEdit, onDelete}) {
         return (
 

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Schedule from '../components/Schedule';
 import SongDisplay from '../components/SongDisplay';
 
+// The homepage displays the user's workout schedule and allows them to navigate the website
 function HomePage() {
 
     const [workouts, setWorkouts] = useState([]);
@@ -12,6 +13,7 @@ function HomePage() {
     const [minTempo, setMinTempo] = useState(0);
     const [maxTempo, setMaxTempo] = useState(0);
 
+    // Gets all songs from the song service
     const findSongs = async () => {
         const response = await fetch('http://127.0.0.1:8000/songs');
         const data = await response.json();
@@ -25,6 +27,7 @@ function HomePage() {
         
     };
 
+    // Filters recommended songs based on specified tempo range
     const filterSongs = () => {
 
         findSongs();
@@ -37,7 +40,7 @@ function HomePage() {
         
     }
 
-
+    // Gets all existing workouts from the database
     const findWorkouts = async () => {
         const response = await fetch('/workouts');
         const data = await response.json();
@@ -72,6 +75,7 @@ function HomePage() {
             </thead>
             <tbody> 
                 <tr>
+                    {/*Display the workouts assigned to each day*/}
                     <Schedule workouts = {workouts} day ={'Sunday'} ></Schedule>
                     <Schedule workouts = {workouts} day ={'Monday'} ></Schedule>
                     <Schedule workouts = {workouts} day ={'Tuesday'} ></Schedule>

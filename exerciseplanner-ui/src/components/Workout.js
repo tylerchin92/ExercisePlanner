@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 
-
+// Displays the workouts in a table
 function Workout({workout, onEdit, onDelete}) {
         return (
 

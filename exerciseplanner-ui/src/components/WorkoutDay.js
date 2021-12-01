@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 import Exercise from './Exercise';
 
-
+// Component that displays each workout on the schedule
 function WorkoutDay({workout, exercises}) {
 
         return (

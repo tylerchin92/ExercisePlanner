@@ -1,6 +1,7 @@
 import React from 'react';
 import Song from './Song';
 
+// Displays the song table on the homepage, maps each song to the table body
 function SongDisplay({songs}) {
 
     return (

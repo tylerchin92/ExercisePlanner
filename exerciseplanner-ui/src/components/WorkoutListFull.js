@@ -1,7 +1,7 @@
 import React from 'react';
 import WorkoutAssign from './WorkoutAssign';
 
-
+// This workout list differs from the other because it allows the user to assign the workout to a day
 function WorkoutListFull({workouts, onDelete, onEdit, assignDay, setDay}) {
 
     return (

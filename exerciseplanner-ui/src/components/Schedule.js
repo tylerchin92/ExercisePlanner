@@ -2,6 +2,7 @@ import React from 'react';
 import Song from './Song';
 import WorkoutDay from './WorkoutDay';
 
+// Component that maps each workout to its specified day on the schedule
 function Schedule ({workouts, day}) {
     
     const dayWorkout = workouts.filter(workout => workout.day === day)

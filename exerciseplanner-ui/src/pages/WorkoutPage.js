@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import WorkoutListFull from '../components/WorkoutListFull';
 
-
+// Displays page with all existing workouts
 function WorkoutPage ({setWorkoutToEdit, workoutToEdit}) {
 
     const [workouts, setWorkouts] = useState([]);
@@ -14,11 +14,13 @@ function WorkoutPage ({setWorkoutToEdit, workoutToEdit}) {
 
     const history = useHistory();
 
+    // Brings user to specific page for selected workout for editing
     const onEdit = workout => {
         setWorkoutToEdit(workout);
         history.push('/edit-workout')
     }
 
+    // Delete a workout
     const onDelete = async _id => {
         const response = await fetch(`/workouts/${_id}`, {method: 'DELETE'});
 
@@ -30,6 +32,7 @@ function WorkoutPage ({setWorkoutToEdit, workoutToEdit}) {
         }
     };
 
+    // Assign a workout to a specific day on the schedule
     const assignDay = async _id => {
 
         const changedWorkout = {name, exercises, day};

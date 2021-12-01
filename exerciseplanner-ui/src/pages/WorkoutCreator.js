@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import WorkoutList from '../components/WorkoutList';
 
-
+// Displays page where users can create a new workout
 function WorkoutCreator({setWorkoutToEdit}) {
 
     const [name, setName] = useState('');
@@ -13,6 +13,7 @@ function WorkoutCreator({setWorkoutToEdit}) {
 
     const history = useHistory();
 
+    // Adds a new workout to the database
     const addWorkout = async () => {
         const newWorkout = { name, exercises };
         const response = await fetch('/create-workout', {
@@ -31,11 +32,13 @@ function WorkoutCreator({setWorkoutToEdit}) {
         window.location.reload(false)
     };
 
+    // Takes user to the page for the specified workout for editing
     const onEdit = workout => {
         setWorkoutToEdit(workout);
         history.push('/edit-workout')
     }
 
+    // Deletes a workout
     const onDelete = async _id => {
         const response = await fetch(`/workouts/${_id}`, {method: 'DELETE'});
 
