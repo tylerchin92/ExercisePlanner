@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import WorkoutListFull from '../components/WorkoutListFull';
+import WorkoutNavbar from '../components/WorkoutNavbar';
 
 // Displays page with all existing workouts
 function WorkoutPage ({setWorkoutToEdit, workoutToEdit}) {
@@ -65,11 +65,9 @@ function WorkoutPage ({setWorkoutToEdit, workoutToEdit}) {
 
     return(
         <div>
+            <WorkoutNavbar />
             <WorkoutListFull workouts = {workouts} onEdit = {onEdit} onDelete = {onDelete} assignDay = {assignDay} setDay={setDay}></WorkoutListFull>
             <br></br>
-            <Link to='/create-workout' className='App-link'>Create another Workout</Link>
-            <br></br>
-            <Link to='/' className='App-link'>Return to Home</Link>
         </div>
     );
 };

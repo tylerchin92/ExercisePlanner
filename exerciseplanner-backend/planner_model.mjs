@@ -34,7 +34,7 @@ const songSchema = mongoose.Schema({
 
 })
 
-const Exercise = mongoose.model("Exercise", exerciseSchema);
+
 
 const Workout = mongoose.model("Workout", workoutSchema);
 

@@ -1,9 +1,8 @@
 import React from 'react';
-import Song from './Song';
 import WorkoutDay from './WorkoutDay';
 
 // Component that maps each workout to its specified day on the schedule
-function Schedule ({workouts, day}) {
+function Schedule ({workouts, day, setWorkoutToEdit}) {
     
     const dayWorkout = workouts.filter(workout => workout.day === day)
 
@@ -11,6 +10,7 @@ function Schedule ({workouts, day}) {
         <td>
             {dayWorkout.map((workout, i) =>  <WorkoutDay 
                 workout={workout}
+                setWorkoutToEdit={setWorkoutToEdit}
                 exercises={workout.exercises}
                 key={i} />)}
         </td>

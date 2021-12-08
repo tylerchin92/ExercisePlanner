@@ -1,18 +1,25 @@
 import React from 'react';
-import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
+import { useHistory } from 'react-router';
 import Exercise from './Exercise';
 
 // Component that displays each workout on the schedule
-function WorkoutDay({workout, exercises}) {
+function WorkoutDay({workout, exercises, setWorkoutToEdit}) {
+
+        const history = useHistory();
+
+        const editWorkout = () => {
+            setWorkoutToEdit(workout);
+            history.push('/edit-workout');
+        }
 
         return (
             
-            <table>
-                <caption>{workout.name}</caption>
+            <table class='table table-dark table-bordered'>
+                <caption>{workout.name} <td><button class='btn btn-outline-light' onClick={() => editWorkout()}>View/Edit</button></td> </caption>
                 <thead>
                 <th>Exercise</th>
                     <th>Group</th>
-                    <th>Weight (lbs)</th>
+                    <th>Weight</th>
                     <th>Sets</th>
                     <th>Reps</th>
                 </thead>

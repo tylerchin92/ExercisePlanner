@@ -8,7 +8,7 @@ function WorkoutAssign({workout, onEdit, onDelete, assignDay, setDay}) {
                 <td>{workout.name}</td>
                 <td><select onChange={e => setDay(e.target.value)}>
                     <option value="none" selected disabled hidden>
-                        Select an Option
+                        Select a Day
                     </option>
                     <option>Sunday</option>
                     <option>Monday</option>
@@ -19,7 +19,7 @@ function WorkoutAssign({workout, onEdit, onDelete, assignDay, setDay}) {
                     <option>Saturday</option>
                     <option value="">Unassign</option>
                     </select>
-                    <button onClick={() => assignDay(workout._id)}>Submit</button>
+                    <button class='btn btn-outline-light' onClick={() => assignDay(workout._id)}>Submit</button>
                 </td>
                 <td><AiOutlineEdit onClick={() => onEdit(workout)} /></td>
                 <td><AiOutlineDelete onClick={() => onDelete(workout._id)}/></td>

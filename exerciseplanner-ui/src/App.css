@@ -1,6 +1,9 @@
 .App {
+  
   text-align: center;
 }
+
+
 
 
 table {
@@ -10,3 +13,10 @@ table {
 td {
   vertical-align: top ;
 }
+
+body {
+  padding: 70px;
+  background-color: #212529;
+  color: white;
+}
+

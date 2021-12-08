@@ -16,7 +16,7 @@ function App() {
       <header className="App-header">
         <Router>
           <Route path='/' exact>
-            <HomePage />
+            <HomePage setWorkoutToEdit={setWorkoutToEdit} />
           </Route>
           <Route path='/workouts'>
             <WorkoutPage setWorkoutToEdit = {setWorkoutToEdit} workoutToEdit = {workoutToEdit} />

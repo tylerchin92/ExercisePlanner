@@ -7,7 +7,7 @@ function WorkoutListFull({workouts, onDelete, onEdit, assignDay, setDay}) {
     return (
         <div>
             <h1>Your Workouts</h1>
-            <table>
+            <table class='table table-dark table-bordered table-hover'>
                 <thead>
                     <tr>
                         <th>Name</th>

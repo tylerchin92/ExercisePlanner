@@ -33,20 +33,6 @@ app.get('/workouts', (req, res) => {
         });
 });
 
-app.get('/songs', (req, res) => {
-
-    let filter = {}
-
-    planner.findSongs(filter, '', 0)
-        .then(songs => {
-            res.status(200).json(songs);
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(500).json({Error: 'Request failed'});
-        });
-});
-
 app.get('/workouts/:_id', (req, res) => {
 
     planner.findWorkoutById(req.params._id)

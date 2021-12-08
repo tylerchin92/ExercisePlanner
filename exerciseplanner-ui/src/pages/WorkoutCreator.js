@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import WorkoutList from '../components/WorkoutList';
+import WorkoutNavbar from '../components/WorkoutNavbar';
 
 // Displays page where users can create a new workout
 function WorkoutCreator({setWorkoutToEdit}) {
@@ -62,17 +62,17 @@ function WorkoutCreator({setWorkoutToEdit}) {
 
     return(
         <div>
+            <WorkoutNavbar />
             <h1>Create a Workout</h1>
             <input
                 type='text'
                 value={name}
                 placeholder='New Workout Name'
                 onChange={e => setName(e.target.value)} />
-            <button onClick={addWorkout}>Create</button>
+            <button class='btn btn-outline-light' onClick={addWorkout}>Create</button>
             <br></br>
             <WorkoutList workouts = {workouts} onEdit = {onEdit} onDelete = {onDelete}></WorkoutList>
             <br></br>
-            <Link to='/' className='App-link'>Return to Home</Link>
         </div>
     )
 };

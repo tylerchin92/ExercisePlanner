@@ -5,7 +5,7 @@ import Workout from './Workout';
 function WorkoutList({workouts, onDelete, onEdit}) {
 
     return (
-        <table>
+        <table class='table table-dark table-bordered'>
             <thead>
                 <tr>
                     <th>Name</th>
