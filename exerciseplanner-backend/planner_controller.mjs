@@ -7,6 +7,13 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('exerciseplanner-ui/build'))
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'exerciseplanner-ui', 'build', 'index.html')) // relative path
+      })
+};
+
 app.post('/create-workout', (req, res) => {
 
     planner.createWorkout(req.body.name)
@@ -116,10 +123,6 @@ app.delete('/workouts/:_id', (req, res) => {
             res.status(500).json({Error: 'Request failed'});
         });
 });
-
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('./exerciseplann-ui/build'))
-};
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`)
