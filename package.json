@@ -5,9 +5,9 @@
   "main": "exerciseplanner-backend/planner_controller.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd exerciseplanner-ui && npm run build",
+    "build-ui": "cd exerciseplanner-ui && npm run build",
     "install-ui": "cd exerciseplanner-ui && npm install",
-    "heroku-postbuild": "npm run install-ui && npm run build",
+    "heroku-postbuild": "npm run install-ui && npm run build-ui",
     "start": "nodemon planner_controller.mjs"
   },
   "author": "",

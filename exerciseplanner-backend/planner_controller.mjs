@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('exerciseplanner-ui/build'))
+    app.use(express.static(path.join(__dirname, 'exerciseplanner-ui/dist')))
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'exerciseplanner-ui', 'build', 'index.html')) // relative path
-      })
+        res.sendFile(path.join(__dirname, 'exerciseplanner-ui/dist', 'index.html'));
+      });
 };
 
 app.post('/create-workout', (req, res) => {
