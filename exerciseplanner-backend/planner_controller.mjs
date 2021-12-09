@@ -3,7 +3,7 @@ import express from 'express';
 import * as planner from './planner_model.mjs';
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
@@ -117,6 +117,9 @@ app.delete('/workouts/:_id', (req, res) => {
         });
 });
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('./exerciseplann-ui/build'))
+};
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`)

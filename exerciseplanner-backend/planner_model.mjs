@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 
 mongoose.connect(
-    "mongodb://localhost:27017/exercise_planner_db",
+    process.env.MONGODB_URI || "mongodb://localhost:27017/exercise_planner_db",
     { useUnifiedTopology: true },
 );
 
