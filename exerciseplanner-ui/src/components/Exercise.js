@@ -6,9 +6,6 @@ import ToggleEdit from './ToggleEdit';
 // Component for each exercise mapped to a table row
 function Exercise({ exercise, editExercise, deleteExercise }) {
 
-    const [editedWeight, setWeight] = useState(exercise.weight);
-    const [editedSets, setSets] = useState(exercise.sets);
-    const [editedReps, setReps] = useState(exercise.reps);
     const [display, setDisplay] = useState(
         <tr>
             <td>{exercise.name}</td>

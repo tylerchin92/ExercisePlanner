@@ -11,8 +11,8 @@ function WorkoutNavbar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href='/workouts'>View Workouts</Nav.Link>
-                        <Nav.Link href='/create-workout'>Add a New Workout</Nav.Link>
+                        <Nav.Link href='/view-workouts'>View Workouts</Nav.Link>
+                        <Nav.Link href='/add-workout'>Add a New Workout</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

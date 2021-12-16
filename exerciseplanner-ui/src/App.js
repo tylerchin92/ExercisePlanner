@@ -18,10 +18,10 @@ function App() {
           <Route path='/' exact>
             <HomePage setWorkoutToEdit={setWorkoutToEdit} />
           </Route>
-          <Route path='/workouts'>
+          <Route path='/view-workouts'>
             <WorkoutPage setWorkoutToEdit = {setWorkoutToEdit} workoutToEdit = {workoutToEdit} />
           </Route>
-          <Route path='/create-workout'>
+          <Route path='/add-workout'>
             <WorkoutCreator setWorkoutToEdit = {setWorkoutToEdit}/>
           </Route>
           <Route path='/edit-workout'>
