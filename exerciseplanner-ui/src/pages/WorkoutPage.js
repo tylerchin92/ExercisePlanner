@@ -52,7 +52,6 @@ function WorkoutPage ({setWorkoutToEdit, workoutToEdit}) {
         }
     };
 
-
     const loadWorkouts = async () => {
         const response = await fetch('/workouts');
         const data = await response.json();

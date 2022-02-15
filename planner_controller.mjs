@@ -2,7 +2,6 @@
 import express from 'express';
 import cors from 'cors';
 import * as planner from './planner_model.mjs';
-import serveStatic from 'serve-static';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -17,8 +16,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
-// app.use(serveStatic(__dirname + '/exerciseplanner-ui/build'))
 
+// Create a workout
 app.post('/create-workout', (req, res) => {
 
     planner.createWorkout(req.body.name)
@@ -31,6 +30,8 @@ app.post('/create-workout', (req, res) => {
         });
 });
 
+
+// Get all workouts
 app.get('/workouts', (req, res) => {
 
     let filter = {}
@@ -45,6 +46,8 @@ app.get('/workouts', (req, res) => {
         });
 });
 
+
+// Get a workout by id
 app.get('/workouts/:_id', (req, res) => {
 
     planner.findWorkoutById(req.params._id)
@@ -61,6 +64,8 @@ app.get('/workouts/:_id', (req, res) => {
         });
 });
 
+
+// Update a workout by id
 app.put('/workouts/:_id', (req, res) =>{
 
     planner.updateWorkout(req.params._id, req.body.name, req.body.exercises)
@@ -78,6 +83,7 @@ app.put('/workouts/:_id', (req, res) =>{
         });
 });
 
+// Assign a workout to a day
 app.put('/days/:_id', (req, res) =>{
 
     planner.assignDay(req.params._id, req.body.name, req.body.day)
@@ -95,23 +101,7 @@ app.put('/days/:_id', (req, res) =>{
         });
 });
 
-app.put('/days', (req, res) =>{
-
-    planner.updateDay(req.body.name, req.body.workout)
-        .then(numUpdated => {
-            if (numUpdated === 1) {
-                res.status(200).json({name: req.body.name, exercises: req.body.workout})
-            }
-            else {
-                res.status(404).json({Error: 'Resource not found'})
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(500).json({Error: 'Request failed'});
-        });
-});
-
+// Delete a workout
 app.delete('/workouts/:_id', (req, res) => {
 
     planner.deleteWorkoutById(req.params._id)
@@ -129,6 +119,7 @@ app.delete('/workouts/:_id', (req, res) => {
         });
 });
 
+// Serve static files in production
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'exerciseplanner-ui', 'build')))
     app.get('*', (req, res) => {
