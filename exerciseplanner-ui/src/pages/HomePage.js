@@ -13,7 +13,7 @@ function HomePage({setWorkoutToEdit}) {
     const findWorkouts = async () => {
         const response = await fetch('/workouts');
         const data = await response.json();
-
+        
         if (response.status === 200) {
             setWorkouts(data);
         }

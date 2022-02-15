@@ -29,16 +29,6 @@ const workoutSchema = mongoose.Schema({
     day: {type: String, required: false}
 });
 
-const songSchema = mongoose.Schema({
-    title: {type: String, required: true},
-    artist: {type: String, required: true},
-    album: {type: String, required: true},
-    genre: {type: String, required: true}
-
-})
-
-
-
 const Workout = mongoose.model("Workout", workoutSchema);
 
 const createWorkout = async (name) => {
